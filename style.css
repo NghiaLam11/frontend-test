@@ -9,19 +9,19 @@ html {
 }
 body {
   font-family: "Poppins", sans-serif;
-  /* overflow: hidden; */
 }
 a {
   text-decoration: none;
   color: var(--text-color);
 }
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 .wrapper {
   background-color: #fff;
   max-width: 1600px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .container {
   padding: 0 2rem;
@@ -156,10 +156,11 @@ button{
   bottom: 40px;
 }
 .feature__img {
+  transition: all 2s ease-in-out;
   position: absolute;
   width: 70rem;
   height: 112rem;
-  right: 8rem;
+  right: -100rem;
   top: -8rem;
   border-radius: 5px;
 }
@@ -217,12 +218,34 @@ button{
 }
 .partner {
   margin-top: 20rem;
+  height: 40rem;
+}
+.partner__container{
+    position: relative;
 }
 .partner__link {
+  left: 0;
+  position: absolute;
   margin-top: 10rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  transition: animation 4s linear;
+  animation: slider 8s linear infinite;
+}
+.partner__link-child{
+  display: flex;
+}
+@keyframes slider {
+  0% {
+    left: 140%;
+    opacity: 1;
+  }
+  100% {
+    left: -100%;
+    opacity: 1;
+  }
 }
 .partner__title {
   font-weight: 600;
@@ -231,14 +254,19 @@ button{
   color: #121212;
 }
 .partner__link-img {
-  padding: 3rem 5rem;
+  width: 20rem;
+  padding: 3rem 4rem;
   cursor: pointer;
 }
 
 .end {
+  position: relative;
+  left: 180rem;
   display: flex;
   background: #ffbb00;
   margin-top: 10rem;
+  opacity: 0;
+  transition: left 2s ease-in-out;
 }
 .end__img {
   width: 778.54px;
